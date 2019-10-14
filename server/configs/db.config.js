@@ -1,14 +1,14 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-const { DBURL } = process.env;
+const { DBURL_ATLAS } = process.env;
 
 mongoose.Promise = Promise;
 
 mongoose
-  .connect(DBURL, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+  .connect(DBURL_ATLAS, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURL}`);
+    console.log(`Connected to Mongo on ${DBURL_ATLAS}`);
   })
   .catch(err => {
     console.error("Error connecting to mongo", err);
