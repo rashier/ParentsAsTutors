@@ -29,7 +29,7 @@ class Navbar extends Component {
   };
 
   render() {
-   
+  
     if (this.state.loggedInUser) {
       return (
         <React.Fragment>
@@ -63,7 +63,9 @@ class Navbar extends Component {
           <nav className="nav-style">
           <div className="nav-style-left">
               <div>
+                <Link to="/home">
                 <img className="navbar-logo" src={this.images.logo} alt="logo children" />
+                </Link>
               </div>
               <h1>Parents As Tutors</h1>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { withRouter } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect, BrowserRouter} from "react-router-dom";
 
 // import ProjectList from './components/projects/ProjectList';
 import Navbar from "./components/navbar/Navbar";
@@ -24,7 +24,7 @@ class App extends Component {
     this.state = { loggedInUser: null };
     this.service = new AuthService();
 
-    this.fetchUser();
+    // this.fetchUser();
   }
 
   getUser = userObj => {
@@ -66,13 +66,14 @@ class App extends Component {
       //en este caso mostramos los contenidos ya que hay usuario
       return (
         <React.Fragment>
-          {/* <Redirect to="/"></Redirect> */}
+          <Redirect to="/home"></Redirect>
               <Navbar
                 userInSession={this.state.loggedInUser}
                 logout={this.logout}
               />
                 <div className="App">
             <header className="App-header">
+            
               <Switch>
                 <Route exact path="/profile" render={() => <Profile userInSession={this.state.loggedInUser}/>} />
                 <Route exact path="/teacher" render={() => <Teacher userInSession={this.state.loggedInUser}/>} />
@@ -112,7 +113,7 @@ class App extends Component {
                 <Route
                   exact
                   path="/"
-                  render={() => <Home userInSession={this.state.loggedInUser} getUser={this.getUser} />}
+                  render={() => <Home />}
                 />
               </Switch>
             </header>

@@ -2,15 +2,7 @@ import React, { Component } from "react";
 import ReactPlayer from 'react-player'
 
 export default class Home extends Component {
-    constructor(props){
-        super(props);
-        this.state={ loggedInUser: null };
-    }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
-      }
-    
   render() {
       return (
         <div className="home-container">
