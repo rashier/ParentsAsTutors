@@ -64,11 +64,11 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/updateprofile/:id', (req, res)=> {
- const doc = {
-     phone: req.body.phone,
-     email: req.body.email
- };
- console.log(doc);
+  const doc = {
+    phone: req.body.phone,
+    email: req.body.email
+  };
+  console.log(doc);
   User.findByIdAndUpdate({_id: req.params._id}, doc, function(err, result) {
       if (err)
         res.send(err);

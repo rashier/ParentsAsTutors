@@ -13,10 +13,10 @@ router.post("/addstudent", (req, res, next) => {
     school: school,
     emailparent: emailparent
   }).then(create=>{
-       User.findByIdAndUpdate(req.user._id,{$push:{alumni: create._id}},{new:true})
-       .then(()=>{
-           res.json(create)
-       })
+      User.findByIdAndUpdate(req.user._id,{$push:{alumni: create._id}},{new:true})
+      .then(()=>{
+        res.json(create)
+      })
     })
     .catch(e => next(e));
 });

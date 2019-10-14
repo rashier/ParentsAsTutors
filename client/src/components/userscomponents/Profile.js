@@ -15,7 +15,6 @@ export default class Profile extends Component {
   }
   
   openEdit() {
-    console.log(this.props)
     this.setState({
       editProfile: true,
       phone: this.props.userInSession.phone,
@@ -93,7 +92,7 @@ debugger
             <label>Email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)}            />
           </div>
-          <input type="submit" value="Update Profile" onClick={()=>this.closeEdit()}/>
+          <input type="submit" value="Update Profile"/>
           </form>
         }
       </div>
@@ -101,3 +100,5 @@ debugger
     );
   }
 }
+
+// onClick={()=>this.closeEdit()}
