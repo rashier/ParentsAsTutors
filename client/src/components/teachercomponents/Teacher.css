@@ -1,0 +1,23 @@
+.teacher-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 5rem 0 5rem;
+  color: rgb(184, 106, 38);
+}
+
+.teacher-adds-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-inputs {
+  display: flex;
+  margin: 0 2rem;
+}
+.teacher-label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
