@@ -20,7 +20,7 @@ const app = express();
 
 // Middleware Setup
 var whitelist = [
-  "https://papersastutors.herokuapp.com/", 'http://localhost:3000'
+  "https://parentsastutors.herokuapp.com/", 'http://localhost:3000'
 ];
 var corsOptions = {
   origin: function(origin, callback){
@@ -30,7 +30,6 @@ var corsOptions = {
   credentials: true
 };
 app.use(cors(corsOptions));
-app.options('*', cors());
 
 // Middleware Setup
 app.use(bodyParser.json());
