@@ -30,6 +30,7 @@ var corsOptions = {
   credentials: true
 };
 app.use(cors(corsOptions));
+app.options('*', cors());
 
 // Middleware Setup
 app.use(bodyParser.json());
