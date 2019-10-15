@@ -17,6 +17,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
 // Middleware Setup
 var whitelist = [
   'https://papersastutors.herokuapp.com', 'http://localhost:3000'
