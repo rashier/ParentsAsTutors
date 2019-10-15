@@ -62,5 +62,8 @@ app.use('/', authRouter);
 const addRouter = require('./routes/student.routes');
 app.use('/', addRouter);
 
+app.use((req, res, next) => {
+  res.sendFile(__dirname + “/public/index.html”);
+});
 
 module.exports = app;
