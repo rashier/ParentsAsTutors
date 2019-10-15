@@ -8,7 +8,7 @@ mongoose.Promise = Promise;
 mongoose
   .connect(DBURL_ATLAS, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURL_ATLAS}`);
+    console.log(`Connected to Mongo on`);
   })
   .catch(err => {
     console.error("Error connecting to mongo", err);
