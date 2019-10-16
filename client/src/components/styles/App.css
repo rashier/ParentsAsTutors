@@ -13,3 +13,11 @@
   align-items: center;
   color: rgb(184, 106, 38);
 }
+
+.App-header{
+  margin-top: 4rem;
+}
+
+.App footer{
+  background: red;
+}

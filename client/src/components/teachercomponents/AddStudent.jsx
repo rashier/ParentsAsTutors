@@ -20,7 +20,13 @@ class AddStudent extends Component {
     this.route.addStudent(studentname, dni, grade, school, emailparent)
       .then(() => {
         this.setState(
-          {...this.state}
+          {...this.state, 
+            studentname: "", 
+            dni: "", 
+            phone: "", 
+            grade: "", 
+            school: "", 
+            emailparent: ""}
         );
       })
       .catch(error => {
@@ -58,11 +64,11 @@ class AddStudent extends Component {
               <label className="teacher-label">Email Parent:</label>
             </div>
             <div className="teacher-label-container">
-              <input className="teacher-input" type="text" name="studentname" placeholder="Sara Benavides Buitrago" onChange={e => this.handleChange(e)}/>
-              <input className="teacher-input" type="text" name="dni" placeholder="Y1234567R" onChange={e => this.handleChange(e)}/>
-              <input className="teacher-input" type="text" name="grade" placeholder="3B" onChange={e => this.handleChange(e)}/>
-              <input className="teacher-input" type="text" name="school" placeholder="School Pablo Sarasate" onChange={e => this.handleChange(e)}/>
-              <input className="teacher-input" type="text" name="emailparent" placeholder="tatiana.buitrago@gmail.com" onChange={e => this.handleChange(e)}/>
+              <input className="teacher-input" type="text" value={this.state.studentname} name="studentname" placeholder="Sara Benavides Buitrago" onChange={e => this.handleChange(e)}/>
+              <input className="teacher-input" type="text" value={this.state.dni} name="dni" placeholder="Y1234567R" onChange={e => this.handleChange(e)}/>
+              <input className="teacher-input" type="text" value={this.state.grade} name="grade" placeholder="3B" onChange={e => this.handleChange(e)}/>
+              <input className="teacher-input" type="text" value={this.state.school} name="school" placeholder="School Pablo Sarasate" onChange={e => this.handleChange(e)}/>
+              <input className="teacher-input" type="text" value={this.state.emailparent} name="emailparent" placeholder="tatiana.buitrago@gmail.com" onChange={e => this.handleChange(e)}/>
               <input type="submit" value="Add Student"/>
             </div>
             <h1>{this.state.error ? "You must fill all fields" : ""}</h1>
@@ -70,7 +76,7 @@ class AddStudent extends Component {
         </form>
         
         </div>
-        
+
         <Link to="/profile">Back</Link>
 
       </div>

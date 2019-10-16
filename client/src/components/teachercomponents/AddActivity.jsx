@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import "./Teacher.css";
+import "../styles/Teacher.css";
 import RouteServices from '../../services/RouteService'
 
 class AddActivity extends Component {

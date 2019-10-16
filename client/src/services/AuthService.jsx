@@ -23,8 +23,8 @@ class AuthService {
     .then(response => response.data)
   }
 
-  updateprofile = (phone, email) => {
-    return this.service.post('/update/:id',{phone, email})
+  updateprofile = (id, phone, email) => {
+    return this.service.post(`/updateprofile`,{id, phone, email})
     .then(response => response.data)
   }
 

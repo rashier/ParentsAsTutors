@@ -54,7 +54,7 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h3>Welcome to Parents As Tutors! {this.state.role}</h3>
+        <h3>Welcome to Parents As Tutors!</h3>
         <p>Do you want create a new account:</p>
         <form onSubmit={this.handleFormSubmit}>
           <div>

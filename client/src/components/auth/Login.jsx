@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import AuthService from '../../services/AuthService';
 import Images from "../../resources/Images";
-import "./Login.css";
+import "../styles/Login.css";
 
 class Login extends Component {
   constructor(props) {

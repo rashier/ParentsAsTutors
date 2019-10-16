@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 
+
 export default class Profile extends Component {
   constructor(props) {
     super(props)
@@ -26,7 +27,6 @@ export default class Profile extends Component {
     this.setState({
       phone:"",
       email:"",
-      password:"",
       editProfile: false
     });
   }
@@ -35,15 +35,16 @@ export default class Profile extends Component {
     event.preventDefault();
     const phone = this.state.phone;
     const email = this.state.email
-debugger
-    this.service
-      .updateProfile(phone, email)
+    this.service.updateprofile(this.props.userInSession._id,phone, email)
       .then(response => {
     this.setState({
-      phone: "",
-      email: "",
+      phone: this.props.userInSession.phone,
+      email: this.props.userInSession.email,
+    }, ()=>{
+      this.props.fetch()
+      this.closeEdit()
     });
-    this.props.getUser(response.user);
+    
   })
   .catch(error => {
     this.setState({
@@ -73,10 +74,10 @@ debugger
         <p>debo mirar la manera de obtener una vista de actualizacion de datos de usuario</p>
         <Link to="/home"><p>Back to Home</p></Link>
         {this.props.userInSession.role==='teacher'?
-          <Link to="/addStudent"><p>Add Student</p></Link>
-        :null}
+          <Link to="/addStudent"><p>Students</p></Link>
+        :<Link to="/sons"><p>Sons</p></Link>}
         {this.props.userInSession.role==='teacher'?
-          <Link to="/addActivity"><p>Add Activity</p></Link>
+          <Link to="/addActivity"><p>Activities</p></Link>
         :null}
       </div>
 
@@ -86,11 +87,11 @@ debugger
           <h1>si quieres editar tu  perfil modifica acontinuacion:</h1>
           <div>
             <label>Phone:</label>
-            <input type="text" name="phone" value={this.state.phone} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="phone" value={this.state.phone} onChange={e => this.handleChange(e)}/>
           </div>
           <div>
             <label>Email:</label>
-            <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)}/>
           </div>
           <input type="submit" value="Update Profile"/>
           </form>
@@ -100,5 +101,3 @@ debugger
     );
   }
 }
-
-// onClick={()=>this.closeEdit()}

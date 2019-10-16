@@ -1,9 +1,7 @@
-// navbar/Navbar.js
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
-import "./Navbar.css";
+import "../styles/Navbar.css";
 import Images from "../../resources/Images";
 
 //Para mirar el login social de google                         <==============
@@ -37,10 +35,12 @@ class Navbar extends Component {
             <div className="nav-style-left">
               <div>
                 <Link to="/home">
-                <img className="navbar-logo" src={this.images.logo} alt="logo children"/>
+                <img className="navbar-logo rotate-center" src={this.images.logo} alt="logo children"/>
                 </Link>
               </div>
+              <Link to="/home">
               <h1>Parents As Tutors</h1>
+              </Link>
             </div>
             <div>
               <ul>
@@ -63,11 +63,13 @@ class Navbar extends Component {
           <nav className="nav-style">
           <div className="nav-style-left">
               <div>
-                <Link to="/home">
-                <img className="navbar-logo" src={this.images.logo} alt="logo children" />
+                <Link to="/">
+                <img className="navbar-logo rotate-center" src={this.images.logo} alt="logo children" />
                 </Link>
               </div>
+              <Link to="/">
               <h1>Parents As Tutors</h1>
+              </Link>
             </div>
             <ul>
               <li>
