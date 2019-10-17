@@ -1,10 +1,9 @@
-.login-container{
-    background: rgba(201, 131, 93, 0.653);
-    margin: 0 10rem;
+.login-container {
+  background: rgba(201, 131, 93, 0.653);
+  margin: 0 10rem;
+  margin-top: 4rem;
 }
 
-
-.login-img{
-    width:30%;
-
+.login-img {
+  width: 30%;
 }

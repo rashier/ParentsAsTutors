@@ -6,7 +6,7 @@ const { DBURL_ATLAS } = process.env;
 mongoose.Promise = Promise;
 
 mongoose
-  .connect(DBURL_ATLAS, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
+  .connect(DBURL_ATLAS, { useFindAndModify: false, useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
   .then(() => {
     console.log(`Connected to Mongo on`);
   })

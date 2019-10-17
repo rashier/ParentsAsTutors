@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Teacher.css";
-import RouteServices from "../../services/RouteService";
+import React, { Component } from "react"                      ;
+import { Link } from             "react-router-dom"           ;
+import                           "../styles/Teacher.css"      ;
+import RouteServices from        "../../services/RouteService";
 
 class Teacher extends Component {
   constructor(props) {
     super(props);
     this.route = new RouteServices();
     this.state = {
-      loggedInUser: null,
-      students: [],
+      loggedInUser : null,
+      students     : []  ,
       selectStudent: null,
-      editProfile: false
     };
   }
 
@@ -31,30 +30,27 @@ class Teacher extends Component {
   openEdit() {
     this.setState({
       editProfile: true,
-      grade: this.state.selectStudent.grade,
-      school: this.state.selectStudent.school
+      grade      : this.state.selectStudent.grade,
+      school     : this.state.selectStudent.school
     });
   }
 
   closeEdit() {
     this.setState({
-      grade: "",
-      school: "",
       editProfile: false
     });
   }
 
   updateStudent = event => {
     event.preventDefault();
-    const grade = this.state.grade;
+    const grade  = this.state.grade;
     const school = this.state.school;
     this.route
       .updatestudent(this.state.selectStudent._id, grade, school)
       .then(response => {
         this.setState(
           {
-            grade: this.state.selectStudent.grade,
-            school: this.state.selectStudent.email
+            selectStudent:response
           },
           () => {
             this.closeEdit();
@@ -63,9 +59,9 @@ class Teacher extends Component {
       })
       .catch(error => {
         this.setState({
-          grade: grade,
+          grade : grade,
           school: school,
-          error: true
+          error : true
         });
       });
   };
@@ -76,7 +72,6 @@ class Teacher extends Component {
       selectStudent: this.state.students.filter(
         student => student._id === value
       )[0]
-      // [name]: value
     });
   };
 
@@ -87,6 +82,7 @@ class Teacher extends Component {
 
   render() {
     const { selectStudent, editProfile } = this.state;
+
     return (
       <React.Fragment>
         <div className="teacher-container">
@@ -104,9 +100,7 @@ class Teacher extends Component {
           </select>
           {!!selectStudent ? (
             <>
-              <table
-                className={!editProfile ? "date-student-container" : "formNone"}
-              >
+              <table className={!editProfile ? "date-student-container" : "formNone"}>
                 <thead>
                   <tr>
                     <th>Student name</th>
@@ -131,10 +125,7 @@ class Teacher extends Component {
                   </tr>
                 </tbody>
               </table>
-              <form
-                onSubmit={this.updateStudent}
-                className={editProfile ? "studentupsdate-form" : "formNone"}
-              >
+              <form onSubmit={this.updateStudent} className={editProfile ? "studentupsdate-form" : "formNone"}>
                 <h1>For edit this student:</h1>
                 <table>
                   <thead>
@@ -149,20 +140,10 @@ class Teacher extends Component {
                     <tr>
                       <td>{selectStudent.studentname}</td>
                       <td>
-                        <input
-                          type="text"
-                          name="grade"
-                          defaultValue={selectStudent.grade}
-                          onChange={e => this.handleChange(e)}
-                        ></input>
+                        <input type="text" name="grade" defaultValue={selectStudent.grade} onChange={e => this.handleChange(e)}></input>
                       </td>
                       <td>
-                        <input
-                          type="text"
-                          name="school"
-                          defaultValue={selectStudent.school}
-                          onChange={e => this.handleChange(e)}
-                        ></input>
+                        <input type="text" name="school" defaultValue={selectStudent.school} onChange={e => this.handleChange(e)}></input>
                       </td>
                       <td>{selectStudent.emailparent}</td>
                       {!editProfile && (
@@ -176,11 +157,36 @@ class Teacher extends Component {
                 <input type="submit" value="Update Student" />
               </form>
             </>
-          ) : (
-            ""
-          )}
-          <Link to="/profile">Back</Link>
+          ) : null}
         </div>
+        {/* DEBO MOSTRAR LA TABLA CUANDO SE SELECCION EL USUARIO Y CUANDO SE ACTULICE EL USURIO HACER EL RENDER BIEN */}
+        <div className="activities-student-container">
+          <table>
+            <thead>
+              <tr>
+                <th>SUBJECT</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+                <th>IMAGE</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.selectStudent!==null? 
+                this.state.selectStudent.activities.map((activity,idx)=>{
+                  return (
+                    <tr key={idx}>
+                      <td>{activity.subject}</td>
+                      <td>{activity.title}</td>
+                      <td>{activity.activity}</td>
+                      <td><img width="200" height="200" alt="activity" src={activity.imgPath}/></td>
+                    </tr>
+                  )
+                })
+              : null}
+            </tbody>
+          </table>
+        </div>
+        <Link to="/profile">Back</Link>
       </React.Fragment>
     );
   }

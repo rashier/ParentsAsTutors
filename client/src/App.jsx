@@ -11,6 +11,7 @@ import Home from "./components/home/Home";
 import Teacher from "./components/teachercomponents/Teacher";
 import AddActivity from "./components/teachercomponents/AddActivity";
 import AddStudent from "./components/teachercomponents/AddStudent";
+import Sons from "./components/parentcomponents/Sons";
 
 class App extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class App extends Component {
                 <Route exact path="/home" render={() => <Home userInSession={this.state.loggedInUser}/>} />
                 <Route exact path="/addStudent" render={() => <AddStudent userInSession={this.state.loggedInUser}/>} />
                 <Route exact path="/addActivity" render={() => <AddActivity userInSession={this.state.loggedInUser}/>} />
+                <Route exact path="/sons" render={() => <Sons userInSession={this.state.loggedInUser}/>} />
               </Switch>
             </header>
           </div>

@@ -19,16 +19,8 @@ const login = (req, user) => {
 
 // SIGNUP
 router.post("/signup", async (req, res, next) => {
-  const {
-    firstname,
-    surnames,
-    phone,
-    email,
-    username,
-    password,
-    role
-  } = req.body;
-
+  const { firstname, surnames, phone, email, username, password, role } = req.body;
+c
   // Check for non empty user or password
   if (!username || !password) {
     next(new Error("You must provide valid credentials"));
@@ -76,12 +68,11 @@ router.post("/updateprofile", (req, res) => {
     phone: req.body.phone,
     email: req.body.email
   };
-  User.findByIdAndUpdate(req.body.id, doc, function(err, result) {
-    if (err) {
-      res.send(err);
-    }
-    res.send("User successfully updated!");
-  });
+  User.findByIdAndUpdate(req.body.id, doc, {new:true}) 
+    .then((updateProfile)=>{
+      res.json(updateProfile)
+    })
+    .catch(err=>console.log("don't update profile   ",err))
 });
 
 router.get("/currentuser", (req, res, next) => {

@@ -43,25 +43,26 @@ class Login extends Component {
 
   render() {
 
-    return (<div className="login-container">
-      <img className="login-img" src={this.images.logo} alt="logo children"/>
+    return (
+      <div className="login-container">
 
-      <form onSubmit={this.handleFormSubmit}>
-        <div>
-          <label>Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-        </div>
+        <form onSubmit={this.handleFormSubmit}>
+          <div>
+            <label>Username:</label>
+            <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+          </div>
 
-        <div>
-          <label>Password:</label>
-          <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-        </div>
+          <div>
+            <label>Password:</label>
+            <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+          </div>
 
-        <input type="submit" value="Login" />
-      </form>
+          <input type="submit" value="Login" />
+        </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>
-    </div>)
+      </div>
+    )
   }
 }
 

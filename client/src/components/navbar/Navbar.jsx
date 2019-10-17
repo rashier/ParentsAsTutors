@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
-import "../styles/Navbar.css";
+import "../styles/Navbar.scss";
 import Images from "../../resources/Images";
 
 //Para mirar el login social de google                         <==============
@@ -47,7 +47,9 @@ class Navbar extends Component {
                 {this.props.userInSession.role==='teacher'?
                   <li><Link className="nav-link" to="/teacher">Teacher</Link></li>
                 :null}
-                
+                {this.props.userInSession.role==='parent'?
+                <li><Link className="nav-link" to="/sons">Sons</Link></li>
+                :null}
                 <li><Link className="nav-link" to="/profile">Profile</Link></li>
                 <li><Link className="nav-link" to="/" onClick={this.handleLogout}>Logout</Link></li>
               </ul>

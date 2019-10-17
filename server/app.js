@@ -62,6 +62,9 @@ app.use('/', authRouter);
 const addRouter = require('./routes/student.routes');
 app.use('/', addRouter);
 
+const addActRouter = require('./routes/activity.routes');
+app.use('/', addActRouter);
+
 app.use((req, res, next) => {
   res.sendFile({__dirname} + `/public/index.html`);
 });

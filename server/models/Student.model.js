@@ -23,7 +23,11 @@ const studentSchema = new Schema(
     emailparent:{
       type: String,
       required: true
-    }
+    },
+    activities: [{
+      type: Schema.Types.ObjectId, 
+      ref:'Activity'
+    }],
   },
   {
     timestamps: true
