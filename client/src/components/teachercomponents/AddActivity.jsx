@@ -119,7 +119,6 @@ class AddActivity extends Component {
   }
 
   render() {
-    console.log(this.state.autoCompleteResults)
 
     return (
       <React.Fragment>
