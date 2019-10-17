@@ -174,8 +174,8 @@ class AddActivity extends Component {
           </div>
 
             {this.state.resultQuery.map((result, idx) => (
-              <div>
-              <iframe id="player" type="text/html" width="320" height="180" src={"http://www.youtube.com/embed/"+result.id.videoId} frameBorder="0" ></iframe>
+              <div key={idx}>
+              <iframe id="player" title={"video"+idx} type="text/html" width="320" height="180" src={"https://www.youtube.com/embed/"+result.id.videoId} frameBorder="0" ></iframe>
               <button>Select Video</button>
               <h1>{result.snippet.title}</h1>
               <p>{result.snippet.description}</p>

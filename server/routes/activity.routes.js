@@ -62,7 +62,7 @@ router.get("/searchyt/:query", (req, res) => {
 router.get("/searchAutocomplete/:query", (req, res) => {
   axios
     .get(
-      `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${req.params.query}`
+      `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${req.params.query}`
     )
     .then(response => {
       res.status(200).json(response.data);
