@@ -56,7 +56,7 @@ class AddActivity extends Component {
       .addActivity(studentcode, subject, title, activity, video, imgPath)
       .then(() => {
         this.setState(
-          {...this.state,
+          {
           studentcode: "",
           subject: "",
           title: "",
@@ -64,7 +64,8 @@ class AddActivity extends Component {
           video: "",
           imgPath: "",
           default:"DEFAULT"
-        });
+        }
+        );
       })
       .catch(error => console.log(error));
   };

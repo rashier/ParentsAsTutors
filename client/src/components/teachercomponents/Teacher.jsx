@@ -1,5 +1,4 @@
 import React, { Component } from "react"                      ;
-import { Link } from             "react-router-dom"           ;
 import                           "../styles/Teacher.scss"      ;
 import RouteServices from        "../../services/RouteService";
 
@@ -118,12 +117,12 @@ class Teacher extends Component {
                     <td>{selectStudent.emailparent}</td>
                   </tr>
                 </tbody>
+              </table>
                     {!editProfile && (
                         <button className="allbutton" onClick={() => this.openEdit()}>
                           Edit Student
                         </button>
                     )}
-              </table>
               <form onSubmit={this.updateStudent} className={editProfile ? "studentupsdate-form" : "formNone"}>
                 <h1>For edit this student:</h1>
                 <div className="teacher-select-student">

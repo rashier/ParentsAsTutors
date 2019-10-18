@@ -20,13 +20,14 @@ class AddStudent extends Component {
     this.route.addStudent(studentname, dni, grade, school, emailparent)
       .then(() => {
         this.setState(
-          {...this.state, 
+          {
             studentname: "", 
             dni: "", 
             phone: "", 
             grade: "", 
             school: "", 
-            emailparent: ""}
+            emailparent: ""
+        }
         );
       })
       .catch(error => {

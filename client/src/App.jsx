@@ -113,7 +113,6 @@ class App extends Component {
     }
   }
 }
-//PARENTS AS TUTORS
 
 
 
