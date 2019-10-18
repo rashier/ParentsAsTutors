@@ -17,11 +17,9 @@ const login = (req, user) => {
   });
 };
 
-// SIGNUP
 router.post("/signup", async (req, res, next) => {
   const { firstname, surnames, phone, email, username, password, role } = req.body;
 c
-  // Check for non empty user or password
   if (!username || !password) {
     next(new Error("You must provide valid credentials"));
   }
@@ -29,7 +27,6 @@ c
   let sons = await Student.find({ emailparent: email })
   sons = sons.map(user => user = user._id);
 
-  // Check if user exists in DB
   User.findOne({ username })
   .then( foundUser => {
     if (foundUser) throw new Error('Username already exists');
@@ -47,18 +44,16 @@ c
     })
     .save();
   })
-  .then( savedUser => login(req, savedUser)) // Login the user using passport
-  .then( user => res.json({status: 'signup & login successfully', user})) // Answer JSON
+  .then( savedUser => login(req, savedUser)) 
+  .then( user => res.json({status: 'signup & login successfully', user})) 
   .catch(e => next(e));
 });
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {
-    // Check for errors
     if (err) next(new Error("Something went wrong"));
     if (!theUser) next(failureDetails);
 
-    // Return user and logged in
     login(req, theUser).then(user => res.status(200).json(req.user));
   })(req, res, next);
 });
