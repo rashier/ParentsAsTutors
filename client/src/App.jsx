@@ -1,5 +1,6 @@
+
 import React, { Component } from "react";
-import "./components/styles/App.css";
+import "./components/styles/App.scss";
 import { withRouter } from "react-router-dom";
 import { Switch, Route, Redirect} from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
@@ -70,6 +71,15 @@ class App extends Component {
                 <Route exact path="/addActivity" render={() => <AddActivity userInSession={this.state.loggedInUser}/>} />
                 <Route exact path="/sons" render={() => <Sons userInSession={this.state.loggedInUser}/>} />
               </Switch>
+            <footer>
+              <ul>
+                <li>About Us</li>
+                <li>Contact</li>
+                <li>Collaborate</li>
+              </ul>
+              <h3>Phone: (675) 433-3346</h3>
+              <h5>Copyright © 2019 Web Site Design by Rashier.</h5>
+            </footer>
             </header>
           </div>
         </React.Fragment>
@@ -86,12 +96,27 @@ class App extends Component {
                 <Route exact path="/login" render={() => <Login getUser={this.getUser} />}/>
                 <Route exact path="/" render={() => <Home />}/>
               </Switch>
+            <footer>
+              <ul>
+                <li><a href="_blank">About Us</a></li>
+                <li><a href="_blank">Contact</a></li>
+                <li><a href="_blank">Collaborate</a></li>
+              </ul>
+              <h3>Phone: (675) 433-3346</h3>
+              <h5>Copyright © 2019 Web Site Design by Rashier.</h5>
+            </footer>
             </header>
           </div>
+
         </React.Fragment>
       );
     }
   }
 }
+//PARENTS AS TUTORS
+
+
+
+
 
 export default withRouter(App);

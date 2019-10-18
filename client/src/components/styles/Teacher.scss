@@ -1,0 +1,75 @@
+.teacher-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 68vh;
+  color: #b86a26;
+  margin-top: 2rem;
+}
+.teacher-container h1 {
+ text-transform: uppercase;
+ text-align: center;
+}
+
+.teacher-students-container{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #b86a2596;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 1px 5px 13px #5c5252;
+  margin-bottom: 2rem;
+  color: white
+}
+
+.teacher-adds-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-inputs {
+  display: flex;
+  margin: 0 2rem;
+  
+}
+.teacher-label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.formNone {
+  display: none;
+}
+
+thead, td,th{
+  border: 0.2rem solid white;
+  margin: 2rem 0;
+  color:black;
+}
+
+td{
+  text-align: center;
+  vertical-align: center;
+  text-transform: uppercase;
+}
+
+
+thead, th{
+  color:white;
+}
+
+.studentupsdate-form{
+  border: 0.2rem solid white;
+  margin: 2rem 0;
+  color:black
+}
+
+
+

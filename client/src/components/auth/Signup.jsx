@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/Signup.scss'
 import AuthService from "../../services/AuthService";
 
 class Signup extends Component {
@@ -53,37 +54,36 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Welcome to Parents As Tutors!</h3>
+      <div className="signup-container">
         <p>Do you want create a new account:</p>
         <form onSubmit={this.handleFormSubmit}>
-          <div>
+          <div className="signup-form-div">
             <label>First Name:</label>
-            <input type="text" name="firstname" value={this.state.firstname} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="firstname" placeholder="Cristopher" value={this.state.firstname} onChange={e => this.handleChange(e)}            />
           </div>
-          <div>
+          <div className="signup-form-div">
             <label>Surnames:</label>
-            <input type="text" name="surnames" value={this.state.surnames} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="surnames" placeholder="Benavides Castillo" value={this.state.surnames} onChange={e => this.handleChange(e)}            />
           </div>
-          <div>
+          <div className="signup-form-div">
             <label>Phone:</label>
-            <input type="text" name="phone" value={this.state.phone} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="phone" placeholder="675104928" value={this.state.phone} onChange={e => this.handleChange(e)}            />
           </div>
-          <div>
+          <div className="signup-form-div">
             <label>Email:</label>
-            <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="email" placeholder="parent.tutor@gmail.com" value={this.state.email} onChange={e => this.handleChange(e)}            />
           </div>
-          <div>
+          <div className="signup-form-div">
             <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)}            />
+            <input type="text" name="username"  placeholder="rashier" value={this.state.username} onChange={e => this.handleChange(e)}            />
           </div>
 
-          <div>
+          <div className="signup-form-div">
             <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)}
+            <input type="password" name="password" placeholder="******" value={this.state.password} onChange={e => this.handleChange(e)}
             />
           </div>
-          <div>
+          <div className="signup-form-div">
             <label>Role: </label>
             <select  name="role" value={this.state.role} onChange={e => this.handleChange(e)}>
               <option value="parent">Parent</option>
@@ -91,7 +91,7 @@ class Signup extends Component {
             </select>
           </div>
 
-          <input type="submit" value="Sign up"/>
+          <input className="allbutton" type="submit" value="Sign up"/>
         </form>
 
         <h1>{this.state.error ? "Error" : ""}</h1>

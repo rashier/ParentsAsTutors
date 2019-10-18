@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "../styles/Teacher.css";
+import "../styles/Teacher.scss";
 import RouteServices from "../../services/RouteService";
 
 class Sons extends Component {
@@ -47,6 +47,7 @@ class Sons extends Component {
       <React.Fragment>
         <div className="teacher-container">
           <h1>Dear Parent {this.props.userInSession.firstname}</h1>
+          <div className="teacher-students-container">
           <h2>Your sons:</h2>
           <select defaultValue={'DEFAULT'} onChange={e => this.studentChange(e)}>
             <option disabled value="DEFAULT">
@@ -76,6 +77,7 @@ class Sons extends Component {
             ):null}
             {selectStudent ? (
               <div className="activities-student-container">
+              <h1>Activities</h1>
                 <table>
                   <thead>
                     <tr>
@@ -83,6 +85,7 @@ class Sons extends Component {
                       <th>TITLE</th>
                       <th>DESCRIPTION</th>
                       <th>IMAGE</th>
+                      <th>VIDEO</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -93,6 +96,7 @@ class Sons extends Component {
                             <td>{activity.title}</td>
                             <td>{activity.activity}</td>
                             <td><img width="200" height="200" alt="activity" src={activity.imgPath}/></td>
+                            <td><iframe id="player" title={"video"+idx} type="text/html" width="320" height="180" src={activity.video} frameBorder="0" /></td>
                           </tr>
                         )
                       })}
@@ -100,6 +104,7 @@ class Sons extends Component {
                 </table>
               </div>
             ):null}
+        </div>
         </div>
       </React.Fragment>
     )

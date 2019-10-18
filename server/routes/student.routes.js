@@ -18,16 +18,18 @@ router.post("/addstudent", (req, res, next) => {
         req.user._id,
         { $push: { alumni: create._id } },
         { new: true }
-      ).then(() => {
+      ).then((create) => {
         res.json(create);
-      });
+      })
+      .catch(e => next(e));
       User.findOneAndUpdate(
         { email: emailparent },
         { $push: { alumni: create._id } },
         { new: true }
-      ).then(() => {
+      ).then((create) => {
         res.json(create);
-      });
+      })
+      .catch(e => next(e));
     })
     .then(other => {
       console.log("add student copmplete", other);
@@ -54,7 +56,8 @@ router.get("/children", (req, res, next) => {
     .populate({ path: "alumni", populate: { path: "activities" } })
     .then(user => {
       res.json({ user });
-    });
+    })
+    .catch(e => next(e));
 });
 
 module.exports = router;

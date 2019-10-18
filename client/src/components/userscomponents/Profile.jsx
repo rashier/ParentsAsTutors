@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
+import "../styles/Profile.scss"
 
 
 export default class Profile extends Component {
@@ -63,28 +64,30 @@ export default class Profile extends Component {
   render() {
     return (
       <>
-      <div>
+      <div className="profile-container">
         {this.props.userInSession.role==='teacher'?
           <h1>Teacher {this.props.userInSession.firstname} {this.props.userInSession.surnames}:</h1>
           : <h1>Parent {this.props.userInSession.firstname} {this.props.userInSession.surnames}</h1>}
-        {!this.state.editProfile && 
-          <button onClick={()=>this.openEdit()}>Edit Profile</button>
-        }
-        <img src="https://epss.ucla.edu/media/images/profile_pictures/default.jpg" alt="profile-imgDefault"/>
-        <p>debo mirar la manera de obtener una vista de actualizacion de datos de usuario</p>
-        <Link to="/home"><p>Back to Home</p></Link>
+        <div className="profile-img-container">
+          <div className="profile-buttons">
+          {!this.state.editProfile && 
+            <button  className="allbutton" onClick={()=>this.openEdit()}>Edit Profile</button>
+          }
+          {this.props.userInSession.role==='teacher'?
+          <Link to="/addStudent"><p className="allbutton" >Students</p></Link>
+        :<Link to="/sons"><p className="allbutton">Sons</p></Link>}
         {this.props.userInSession.role==='teacher'?
-          <Link to="/addStudent"><p>Students</p></Link>
-        :<Link to="/sons"><p>Sons</p></Link>}
-        {this.props.userInSession.role==='teacher'?
-          <Link to="/addActivity"><p>Activities</p></Link>
+          <Link to="/addActivity"><p className="allbutton">Activities</p></Link>
         :null}
-      </div>
+        </div>
+          <img src="https://epss.ucla.edu/media/images/profile_pictures/default.jpg" alt="profile-imgDefault"/>
+        </div>
 
-      <div>
+
+      <div className="profile-update-form">
         {this.state.editProfile && 
           <form onSubmit={this.updateProfile}>
-          <h1>si quieres editar tu  perfil modifica acontinuacion:</h1>
+          <h1>Edit the field that you wish change:</h1>
           <div>
             <label>Phone:</label>
             <input type="text" name="phone" value={this.state.phone} onChange={e => this.handleChange(e)}/>
@@ -93,9 +96,10 @@ export default class Profile extends Component {
             <label>Email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)}/>
           </div>
-          <input type="submit" value="Update Profile"/>
+          <input className="allbutton" type="submit" value="Update Profile"/>
           </form>
         }
+      </div>
       </div>
       </>
     );

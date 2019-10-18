@@ -1,0 +1,86 @@
+.signup-container {
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 68vh;
+}
+
+.signup-container p {
+  color: #b86a26;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+.signup-container form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #b86a2596;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 1px 5px 13px #5c5252;
+}
+.signup-container label {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.signup-form-div {
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.signup-form-div input {
+  width: 57%;
+  height: 2rem;
+  border-radius: 1rem;
+  padding: 0 3rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.signup-form-div select {
+  width: 40%;
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.allbutton {
+  box-shadow: inset 0px 0px 0px 0px #91b8b3;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(5%, #6f6d65),
+    to(#c7c0b7)
+  );
+  background: linear-gradient(to bottom, #6f6d65 5%, #c7c0b7 100%);
+  background-color: #768d87;
+  border-radius: 1rem;
+  border: 0.1rem solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #2b665e;
+  margin-top: 1rem;
+}
+.allbutton:hover {
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  background-color: #6c7c7c;
+}
+.allbutton:active {
+  position: relative;
+  top: 1px;
+}

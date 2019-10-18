@@ -4,12 +4,6 @@ import AuthService from "../../services/AuthService";
 import "../styles/Navbar.scss";
 import Images from "../../resources/Images";
 
-//Para mirar el login social de google                         <==============
-// import { GoogleLogin } from "react-google-login";                          |
-// const responseGoogle = response => {                                       |
-//   console.log(response);                                    <==============
-// };
-
 class Navbar extends Component {
   constructor(props) {
     super(props);

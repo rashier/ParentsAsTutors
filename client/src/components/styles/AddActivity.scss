@@ -1,0 +1,83 @@
+.addActivity-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 68vh;
+    color: #b86a26;;
+    margin-top: 2rem;
+}
+
+.addActivity-container form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #b86a2596;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 1px 5px 13px #5c5252;
+    margin-bottom: 2rem;
+  
+  }
+  
+  .addActivity-container label {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  .addActivity-container input {
+    width: 57%;
+    height: 3rem;
+    border-radius: 1rem;
+    padding: 0 3rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .addActivity-container select {
+    width: 57%;
+    height: 3rem;
+    border-radius: 1rem;
+    padding: 0 3rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .addActivity-adds-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .addActivity-label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .addActivity-label-container div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+.resultvideos-container{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.resultvideos-container div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
